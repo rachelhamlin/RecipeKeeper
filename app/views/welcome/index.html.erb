@@ -1,2 +1,16 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div ng-controller='RecipesController'>
+
+<input type='text' name='search' value='' ng-model='searchQuery' placeholder='Filter'><br>
+
+<input type='text' name='recipe' value='' ng-model='recipe.name' placeholder='Name of Recipe'>
+<input type='text' name='url' value='' ng-model='recipe.url' placeholder='URL'>
+<button ng-click='createRecipe(recipe)'>Save</button>
+
+<ul>
+  <li ng-repeat='recipe in recipes'>
+    {{ recipe.name }} // {{ recipe.url }}
+    <button type='button' name='button' ng-click='removeRecipe(recipe)'>Delete</button>
+  </li>
+</ul>
+
+</div>
