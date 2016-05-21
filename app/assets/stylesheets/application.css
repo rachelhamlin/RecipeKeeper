@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+#logo {
+  height: 95%;
+  width: 95%;
+}
+
+h4 {
+  font-style: italic;
+}
+
+#recipe-form {
+  padding-top: 2%;
+}
+
+#recipe-form form {
+  margin-top: -2%;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.category {
+  padding-left: 1rem;
+  font-variant: small-caps;
+}
+
+.recipe-list li {
+  text-align: left;
+  font-family: 'Arvo', serif;
+}
+
+.recipe-list button {
+  border: none;
+  padding: 0;
+}
+
+.recipe-list button:focus {
+  outline: none;
+}

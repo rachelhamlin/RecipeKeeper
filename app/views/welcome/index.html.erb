@@ -1,16 +1,51 @@
 <div ng-controller='RecipesController'>
 
-<input type='text' name='search' value='' ng-model='searchQuery' placeholder='Filter'><br>
+<div class='row'>
 
-<input type='text' name='recipe' value='' ng-model='recipe.name' placeholder='Name of Recipe'>
-<input type='text' name='url' value='' ng-model='recipe.url' placeholder='URL'>
-<button ng-click='createRecipe(recipe)'>Save</button>
+  <div class='three columns'>
+    <%= image_tag("Recipe-logo.png", :id => "logo") %>
+  </div>
 
-<ul>
-  <li ng-repeat='recipe in recipes'>
-    {{ recipe.name }} // {{ recipe.url }}
-    <button type='button' name='button' ng-click='removeRecipe(recipe)'>Delete</button>
-  </li>
-</ul>
+  <div class='six columns' id='recipe-form'>
+    <h4>Add a new recipe</em></h4>
+    <form name='recipeForm'>
+      <input type='text' name='recipe' value='' ng-model='recipe.name' placeholder='Name of Recipe'>
+      <input type='text' name='url' value='' ng-model='recipe.url' placeholder='URL'>
+      <select name='category' ng-model='recipe.selected'>
+        <option value="" disabled selected>Select a category</option>
+        <option value='Gluten-Free'>Gluten-Free</option>
+        <option value='Vegetarian'>Vegetarian</option>
+        <option value='Vegan'>Vegan</option>
+        <option value='Paleo'>Paleo</option>
+      </select>
+      <button ng-click='createRecipe(recipe)'>Save</button>
+    </form>
+  </div>
+
+
+</div>
+
+<div class='row'>
+
+  <div class='six columns offset-by-three recipe-list'>
+
+  <h4>Recipes A to Z</h4>
+
+
+    <div data-icon='ei-search' data-size='s' class='icon'></div><input type='text' name='search' value='' ng-model='searchQuery' placeholder='Search by name'><br>
+
+
+    <ul>
+      <li ng-repeat='recipe in recipes | filter:{name:searchQuery} | orderBy:"name"'>
+        <a href='{{ recipe.url }}' target='_blank'>{{ recipe.name }}</a>
+        <button type='button' name='button' ng-click='removeRecipe(recipe)'><div data-icon='ei-trash' data-size='s' class='icon'></button>
+        <button type='button' name='button' ng-click='removeRecipe(recipe)'><div data-icon='ei-pencil' data-size='s' class='icon'></button>
+        <span class='category'>{{ recipe.category }}</span>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
 
 </div>

@@ -31,23 +31,19 @@ recipeApp.controller('RecipesController',['$scope','$http',function($scope,$http
     var newRecipe = {
       recipe: {
         name: recipe.name,
-        url: recipe.url
+        url: recipe.url,
+        category: recipe.selected
       }
     }
 
     $http.post('/api/recipes', newRecipe).success(function(newRecipe){
       console.log('Created a new recipe!')
+      console.log(newRecipe);
     }).then(function(){
       $scope.getRecipes();
     })
 
-    // favesAPI.save(newRecipe).then(function(response){
-    //   $scope.recipes.push(response.data);
-    // })
-    //
-    // $http.post('/api/recipes', newRecipe).then(function(response){
-    //   $scope.recipes.push(response.recipe);
-    // })
+    $scope.recipe = null;
 
   }
 
