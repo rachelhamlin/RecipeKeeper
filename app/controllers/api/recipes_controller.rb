@@ -20,6 +20,12 @@ class Api::RecipesController < ApplicationController
     render json: { recipes: Recipe.all }
   end
 
+  def update
+    recipe = Recipe.find params[:id]
+    recipe.update recipe_params
+    render json: { recipes: Recipe.all }
+  end
+
   private
 
   def recipe_params

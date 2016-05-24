@@ -27,6 +27,7 @@ recipeApp.controller('RecipesController',['$scope','$http',function($scope,$http
 
   $scope.getRecipes();
 
+
   $scope.createRecipe = function(recipe){
     var newRecipe = {
       recipe: {
@@ -44,7 +45,6 @@ recipeApp.controller('RecipesController',['$scope','$http',function($scope,$http
     })
 
     $scope.recipe = null;
-
   }
 
   $scope.removeRecipe = function(recipe) {
@@ -54,6 +54,36 @@ recipeApp.controller('RecipesController',['$scope','$http',function($scope,$http
     }).then(function(){
       $scope.getRecipes();
     })
+  }
+
+  // $scope.displayEditForm = function(index) {
+  //   $scope.current = index;
+  //   console.log($scope.current);
+  //   // $scope.current.append('.edit-form');
+  //   $('.edit-form').slideDown();
+  // }
+
+  $scope.editForm = false;
+
+
+  $scope.editRecipe = function(recipe) {
+    var recipeID = recipe.id;
+    var updatedRecipe = {
+      recipe: {
+        method: 'put',
+        name: recipe.name,
+        url: recipe.url,
+        category: recipe.selected
+      }
+    }
+
+    $http.put('/api/recipes/' + recipeID, updatedRecipe).success(function(newRecipe){
+      console.log('Updated recipe!')
+      console.log(updatedRecipe);
+    }).then(function(){
+      $scope.getRecipes();
+    })
+
   }
 
 }])

@@ -23,13 +23,17 @@ h4 {
   font-style: italic;
 }
 
-#recipe-form {
+.recipe-list {
   padding-top: 2%;
 }
 
 #recipe-form form {
   margin-top: -2%;
 }
+
+/*.edit-form {
+  display: none;
+}*/
 
 .icon {
   vertical-align: middle;
@@ -38,6 +42,11 @@ h4 {
 .category {
   padding-left: 1rem;
   font-variant: small-caps;
+}
+
+.recipe-list input {
+  margin-top: -2%;
+  margin-bottom: 5%;
 }
 
 .recipe-list li {
