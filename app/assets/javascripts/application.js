@@ -55,14 +55,6 @@ recipeApp.controller('RecipesController',['$scope','$http',function($scope,$http
       $scope.getRecipes();
     })
   }
-
-  // $scope.displayEditForm = function(index) {
-  //   $scope.current = index;
-  //   console.log($scope.current);
-  //   // $scope.current.append('.edit-form');
-  //   $('.edit-form').slideDown();
-  // }
-
   $scope.editForm = false;
 
 
