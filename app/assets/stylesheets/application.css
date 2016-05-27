@@ -23,42 +23,59 @@ h4 {
   font-style: italic;
 }
 
-.recipe-list {
-  padding-top: 2%;
+.main-top {
+  padding-top: 4%;
 }
 
 #recipe-form form {
   margin-top: -2%;
 }
 
-/*.edit-form {
-  display: none;
-}*/
+#recipe-form input, #recipe-form select {
+  vertical-align: bottom;
+}
+
+#recipe-form button {
+  vertical-align: top;
+  background-color: #88ab26;
+  color: #FFFFFF;
+  border-color: #88ab26;
+}
+
+#recipe-form button:hover, #recipe-form button:active {
+  background-color: #6e8b1e;
+  border-color: #6e8b1e;
+}
 
 .icon {
   vertical-align: middle;
 }
+
 
 .category {
   padding-left: 1rem;
   font-variant: small-caps;
 }
 
-.recipe-list input {
+.main-bottom input {
   margin-top: -2%;
   margin-bottom: 5%;
 }
 
-.recipe-list li {
+.main-bottom li {
   text-align: left;
   font-family: 'Arvo', serif;
 }
 
-.recipe-list button {
+.main-bottom button {
   border: none;
   padding: 0;
 }
 
-.recipe-list button:focus {
-  outline: none;
+.main-bottom button:hover {
+  color: #88ab26;
+}
+
+#search-input {
+  width: 150px;
 }

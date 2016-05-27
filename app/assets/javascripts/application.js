@@ -55,7 +55,6 @@ recipeApp.controller('RecipesController',['$scope','$http',function($scope,$http
       $scope.getRecipes();
     })
   }
-  $scope.editForm = false;
 
 
   $scope.editRecipe = function(recipe) {

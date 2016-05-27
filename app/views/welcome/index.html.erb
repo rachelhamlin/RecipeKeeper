@@ -8,9 +8,9 @@
   </div>
 
 
-<div class='six columns recipe-list'>
+<div class='six columns'>
 
-  <div class='row'>
+  <div class='row main-top'>
 
   <div id='recipe-form'>
     <h4>Add a new recipe</em></h4>
@@ -30,19 +30,18 @@
 
   </div>
 
-  <div class='row'>
+  <div class='row main-bottom'>
 
   <h4>Recipes A to Z</h4>
 
-    <div data-icon='ei-search' data-size='s' class='icon'></div><input type='text' name='search' value='' ng-model='searchQuery' placeholder='Search by name'><br>
+    <div data-icon='ei-search' data-size='s' class='icon'></div><input type='text' name='search' value='' ng-model='searchQuery' placeholder='Search by name or type' id='search-input'><br>
 
     <ul>
       <li ng-repeat='recipe in recipes | filter:searchQuery | orderBy:"name"'>
         <a href='{{ recipe.url }}' target='_blank'>{{ recipe.name }}</a>
         <span class='category'>{{ recipe.category }}</span>
-        <button type='button' name='button' ng-click='removeRecipe(recipe)'><div data-icon='ei-trash' data-size='s' class='icon'></div></button>
-        <!-- <button type='button' name='button' ng-click='displayEditForm($index)'><div data-icon='ei-pencil' data-size='s' class='icon'></div></button> -->
         <button type='button' name='button' ng-click='editForm = !editForm'><div data-icon='ei-pencil' data-size='s' class='icon'></div></button>
+        <button type='button' name='button' ng-click='removeRecipe(recipe)'><div data-icon='ei-trash' data-size='s' class='icon'></div></button>
         <div class='edit-form' ng-show='editForm'>
           <input type='text' name='recipe' value='' ng-model='recipe.name' placeholder='Name of Recipe'>
           <input type='text' name='url' value='' ng-model='recipe.url' placeholder='URL'>
